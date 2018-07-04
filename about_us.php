@@ -3,7 +3,6 @@
 		$page="aboutus";
 		$title="About us";
 		require_once('header.php');
-		include('Admin/conn.php');
 		$query="select * from pages where page_nm='about_us'";
 		$result=mysqli_query($link,$query)  or die("Error fetching data.".mysqli_error($link));
 		$row=mysqli_fetch_assoc($result);

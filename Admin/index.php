@@ -57,7 +57,7 @@
 		<nav class="navbar navbar-inverse top-menu">
 		  <div class="container-fluid">
 			<div class="navbar-header">
-			  <a class="navbar-brand" href="#">Namu's Art Gallery</a>
+			  <a class="navbar-brand" href="#">NAG Admin Portal</a>
 			</div>
 			<div>
 			 

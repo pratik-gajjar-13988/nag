@@ -1,89 +1,84 @@
 <?php
-	$page="index";
-	$title="Home";
-	require_once('header.php');
-	$conn=mysqli_connect("localhost","root","","art_gallery");
-	if(mysqli_connect_error())
-	{
-		echo "connection error".mysqli_connect_error();
-		exit;
 
-	}
-?>		
-		<div  style="margin: 100px;">
-		 
+		require_once('Admin/conn.php');
+		session_start();
+	
+		if (isset($_POST['email'])){
+			
+			$email = trim($_REQUEST['email']);
+			$password = trim($_REQUEST['password']);
 		
-				<div id="myCarousel" class="carousel slide" data-ride="carousel">
-				  <ol class="carousel-indicators">
-					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-					<li data-target="#myCarousel" data-slide-to="1"></li>
-					<li data-target="#myCarousel" data-slide-to="2"></li>
-				  </ol>
-				  <div class="carousel-inner" role="listbox">
-					<div class="item active">
-					  <img src="images/1.jpg" alt="Chania">
-					</div>
-					<div class="item">
-					  <img src="images/2.jpg" alt="Chania">
-					</div>
-					<div class="item">
-					  <img src="images/3.jpg" alt="Flower">
-					</div>
-				  </div>
-				  
-				  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				  </a>
-				  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				  </a>
-			
-			
-		  </div>
-		
-		  <div class="home_info">
-			<div class="container recent_product">
-                <div class="panel panel-primary">
-				    <div class="panel-heading">New Arrivals</div>
-				        <div class="panel-body">
-								<ul class="products">
-								<?php
+			//Checking is user existing in the database or not
+			$query = "SELECT * FROM `user_reg` WHERE email='$email' and password='".md5($password)."'";
+			$result = mysqli_query($link,$query) or die(mysql_error());
+			$rows = mysqli_num_rows($result);
+			if($rows==1){
+				$_SESSION['email'] = $email;
+				// Redirect user to index.php
+				header("Location: userhome.php");
+			}else{
+				header("Location: index.php");
+			}
+		}else{
+?>
 
-	$sql = "SELECT * FROM art_items WHERE new_flag=1";
-	$result = mysqli_query($conn, $sql);
 
-	if (mysqli_num_rows($result) > 0) {
-    	// output data of each row
-   		 while($row = mysqli_fetch_assoc($result)) { ?>
-			<li class="product">
-        				<a href="#">
-            				<img src="<?php echo $row['source']; ?>" class="img-thumbnail home_img" alt="Cinque Terre">
-            				<h4><?php echo $row['name']; ?></h4>
-							<p>Rs. <?php echo $row['price']; ?></p>
-						</a>
-						<button type="button" class="btn-add-cart">Add to Cart</button>
-    		</li>
-       		<?php
-    	}
-	} else {
-    	echo "0 results";
-	}
-	mysqli_close($conn);
-?>	
-
-   				
-
-   							 </ul>
-                           
-                        </div>
-                </div>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Login</title>
+		<link href="images/icon.png" rel="icon">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse top-menu">
+		  <div class="container-fluid">
+			<div class="navbar-header">
+			  <a class="navbar-brand" href="#">NAG</a>
 			</div>
-			
-		  </div>
+			<div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="registration.php"><span class="glyphicon glyphicon-user"></span> Registration</a><li>
+				<li><a href="#" style="color:#fff"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			  </ul>
 			</div>
+		  </div>
+		</nav>
+		<div class="container">
+			<div class="panel panel-primary admin-login">
+				<div class="panel-heading"><h3>Login</h3></div>
+				<div class="panel-body">
+				<form class="form-horizontal" method="post" role="form">
+					  <div class="form-group">
+						<label class="control-label col-sm-3">Email</label>
+						<div class="col-sm-9">
+						  <input type="text" class="form-control" name="email" placeholder="Enter Email" required>
+						</div>
+					  </div>
+					  <div class="form-group">
+						<label class="control-label col-sm-3">Password</label>
+						<div class="col-sm-9">
+						  <input type="text" class="form-control" name="password" placeholder="Enter Password" required>
+						</div>
+					  </div>
+					  
+					  <div class="form-group"> 
+						<div class="col-sm-offset-3 col-sm-9">
+						  <button type="submit" class="btn btn-success">Login</button>
+						  
+						</div>
+					  </div>
+					 </form>
+				</div>
+			</div>
+		</div>
+		</body>
+</html>
 <?php
-
-	require('footer.php');
-?>	
+		}
+	require_once('Admin/dbconclose.php');
+?>

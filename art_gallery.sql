@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 INSERT INTO `admin` (`id`, `full_nm`, `username`, `password`) VALUES
-(4, 'NAmrata Gajjar', 'namrataonmail@gmail.com', 'admin');
+(4, 'Namrata Gajjar', 'namrataonmail@gmail.com', 'admin');
 
 -- --------------------------------------------------------
 
@@ -156,23 +156,6 @@ CREATE TABLE IF NOT EXISTS `user_reg` (
 INSERT INTO `user_reg` (`fname`, `lname`, `gender`, `contact`, `email`, `password`, `add1`, `add2`, `add3`) VALUES
 ('Namrata', 'Gajjar', 'Female', '7405198956', 'namrataonmail@gmail.com', 'admin', 'Ahmedabad', 'Ahmedabad', 'Ahmedabad');
 
-CREATE TABLE IF NOT EXISTS `art_items` (
-  `item_id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `source` varchar(400) NOT NULL,
-  `price` int(11) NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `new_flag` int(1) NOT NULL
-  PRIMARY KEY (`item_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
---
--- Dumping data for table `art_items`
---
-
-INSERT INTO `user_reg` (`fname`, `lname`, `gender`, `contact`, `email`, `password`, `add1`, `add2`, `add3`) VALUES
-('Namrata', 'Gajjar', 'Female', '7405198956', 'namrataonmail@gmail.com', 'admin', 'Ahmedabad', 'Ahmedabad', 'Ahmedabad');
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

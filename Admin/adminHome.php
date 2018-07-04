@@ -128,7 +128,7 @@
 	  <body>
 		<div class="container-fluid">
 			<div class="row header">
-				<div class="col-md-9"><h3>Art Gallery</h3></div>
+				<div class="col-md-9"><h3>NAG Admin Portal</h3></div>
 				<div class="col-md-3">
 					<ul class="user-nav">
 						<li class="dropdown user-icon">
