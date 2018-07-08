@@ -33,11 +33,12 @@
             
 				</div>
 				
-     <nav class="navbar navbar-inverse navbar-fixed-top">
-		  	<div class="container-fluid">
+     <nav class="navbar transparent navbar-static-top">
+		 		
+		 	
 				<div class="navbar-header">
-      		<a class="navbar-brand" href="#">AG</a>
-   			</div>
+						<a href="userhome.php" class="navbar-brand"><img style="max-width:100%;max-height: 100%;" src="images/logo.png"></a>
+      	</div>
 			
 				<ul class="nav navbar-nav">
 				
@@ -65,7 +66,7 @@
 					 </ul>
 				</li>
 				</ul>
-			</div>
 		
-		  </div>
+</div>
+		  
 		</nav>

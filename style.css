@@ -8,7 +8,7 @@
 }
 body
 {
-	background:#afcaaf;
+	background:#ffffff;
     text-align: left;
     
 }
@@ -27,48 +27,13 @@ ul.products li h4{
 ul.products li p{
     margin: auto;
 }
-.navbar-inverse
-{
-	border:none;
-	background:linear-gradient(to right,#82a978,rgba(55, 102, 0, 0.7));
-}
-.navbar-inverse .navbar-brand
-{
-	color:#fff;
-	text-shadow:2px 2px 2px #000;
-	font-size:50px;
-	
-}
+
 .signup li
 {
 	padding:0;
 }
-.top_menu
-{
-	background-color:rgb(66, 134, 64);
-	margin-top:80px;
-	
-}
-.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.active>a:hover
-{
-	background:#1e3c1d;
-}
-.navbar-inverse .navbar-nav>.open>a:focus
-{
-	background:rgba(74, 40, 40, 0.4);	
-}
-.navbar-inverse .navbar-nav>li>a:hover
-{
-	background:rgba(0,0,0,0.4);
-}
-.navbar-inverse .navbar-nav>li>a
-{
-	font-size:16px;
-	text-shadow:1px 1px 1px #000;
-	text-align:center;
- 	color:#fff;
-	background-color:rgb(59, 99, 61);
-}
+
+
 .my_cart_container
 {
     position: inherit;
@@ -147,6 +112,37 @@ ul.products li p{
     text-align: center;
 }
 
+.navbar.transparent
+{
+	
+		background:transparent;
+	
+	
+}
+ 
+.navbar {
+    
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.navbar .navbar-collapse {
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+ul.nav a {
+	
+	color: #000000 !important;
+ }
+
+li {
+	text-decoration: none;
+	background-color: transparent;
+	color: transparent;
+}
 
 
 .recent_img_desc .col-md-4 .btn-add-cart
